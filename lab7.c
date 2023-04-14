@@ -1,7 +1,7 @@
 /*
- * File:   prelab7.c
+ * File:   lab7.c
  * Author: Carlos Daniel Valdez Coreas
- * Descripci髇: PIC lee entrada de potenci髆etro en RA0 y 
+ * Descripci贸n: PIC lee entrada de potenci贸metro en RA0 y 
  * controla un servo en RC2 mediante PWM
  * valores en dos contadores en los puertos C y D.
  * Created on 10 de abril de 2023
@@ -131,7 +131,7 @@ void main (void)
 
 void setup(void)
 {
-    // configuraci髇 de entradas y salidas
+    // configuraci贸n de entradas y salidas
     ANSEL = 0b00000111;
     ANSELH = 0;
     
@@ -140,18 +140,18 @@ void setup(void)
     TRISB = 0;
     TRISD = 0;
     
-    // Configuraci髇 del oscilador
+    // Configuraci贸n del oscilador
     OSCCONbits.IRCF = 0b0111; //8MHz
     OSCCONbits.SCS = 1;
     
-    //configuraci髇 del TMR0 
+    //configuraci贸n del TMR0 
     OPTION_REGbits.PS = 0b100;
     OPTION_REGbits.PSA = 0;
     OPTION_REGbits.T0CS = 0;    
     TMR0 = _tmr0_n;
     
-    // Configuraci髇 del ADC
-    ADCON1bits.ADFM = 0;        //justificaci髇 a la izquierda
+    // Configuraci贸n del ADC
+    ADCON1bits.ADFM = 0;        //justificaci贸n a la izquierda
     ADCON1bits.VCFG0 = 0;       //Vref en VSS y VDD
     ADCON1bits.VCFG1 = 0;
     
@@ -160,13 +160,13 @@ void setup(void)
     ADCON0bits.ADON = 1;
     __delay_us(50);
     
-    // configuraci髇 del PWM
+    // configuraci贸n del PWM
     TRISCbits.TRISC2 = 1;       // RC2/CCP1 como entrada
     TRISCbits.TRISC1 = 1;       // RC1/CCP2 como entrada
-    PR2 = 255;                  // configuraci髇 del periodo
+    PR2 = 255;                  // configuraci贸n del periodo
     
     
-    CCP1CONbits.P1M = 0;        // Configuraci髇 del modo PWM
+    CCP1CONbits.P1M = 0;        // Configuraci贸n del modo PWM
     CCP1CONbits.CCP1M = 0b1100;
     
     CCP2CONbits.CCP2M = 0b1100;
@@ -189,7 +189,7 @@ void setup(void)
     TRISCbits.TRISC1 = 0; 
     
     
-    // Configuraci髇 de las interrupciones
+    // Configuraci贸n de las interrupciones
     
     PIR1bits.ADIF = 0;
     PIE1bits.ADIE = 1;
